@@ -1,5 +1,5 @@
 # Laravel Boilerplate
-My Laravel Boilerplate v1
+My Laravel Boilerplate v2
 
 ## Laravel Version
 5.6.12
