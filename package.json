@@ -21,7 +21,6 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.16",
         "mdi": "^2.1.99",
-        "font-awesome": "^4.7.0",
         "autoprefixer": "^8.1.0"
     }
 }
