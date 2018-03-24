@@ -27,6 +27,7 @@ $ rm -rf ./.git && rm -rf ./README.md
 $ composer install -vvv
 $ npm install
 $ npm run dev
+$ cp .env.example .env
 $ php artisan key:generate
 $ php artisan serve
 ```
