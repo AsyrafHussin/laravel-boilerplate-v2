@@ -21,6 +21,6 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.16",
         "mdi": "^2.2.43",
-        "autoprefixer": "^8.1.0"
+        "autoprefixer": "^8.3.0"
     }
 }
