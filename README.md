@@ -2,7 +2,7 @@
 My Laravel Boilerplate v2
 
 ## Laravel Version
-5.6.28
+5.6.29
 
 ## Contains
 * [sass-boilerplate](https://github.com/AsyrafHussin/sass-boilerplate)
