@@ -12,6 +12,7 @@ let mix = require('laravel-mix');
  */
 
  mix.js('resources/assets/js/app.js', 'public/js')
+ 	.autoload({jQuery: 'jquery', $: 'jquery', jquery: 'jquery'})
     .sass('resources/assets/sass/app.scss', 'public/css').options({
         postCss: [ 
             require('autoprefixer'),
