@@ -27,12 +27,7 @@ My Laravel Boilerplate v2
 
     $ git clone https://github.com/AsyrafHussin/laravel-boilerplate-v2.git <project-name>
     $ cd <project-name>
-    $ rm -rf ./.git && rm -rf ./README.md
-    $ composer install -vvv
-    $ npm install
-    $ npm run dev
-    $ cp .env.example .env
-    $ php artisan key:generate
+    $ ./setup.sh
     $ php artisan serve
 
 ## Contributing
