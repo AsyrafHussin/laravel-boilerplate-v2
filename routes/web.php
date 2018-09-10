@@ -20,7 +20,7 @@ Route::get('/', function () {
  */
 Route::name('auth:')->group(function () {
     Route::middleware('guest')->group(function () {
-        Route::name('login')->get('login', 'AuthController@index');
+        Route::name('login')->get('login', 'AuthController@login');
         Route::name('login:check')->post('login/check', 'AuthController@auth');
     });
     Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
