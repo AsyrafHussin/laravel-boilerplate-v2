@@ -16965,24 +16965,59 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_scroll_js__ = __webpack_require__("./resources/assets/js/modules/scroll.js");
+// Global Import
 
 window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
 window.$ = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
 window.jquery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
 
-__webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 
-jQuery(document).ready(function ($) {
-  // script here
+// import module
+
+
+$(document).ready(function () {
+  __WEBPACK_IMPORTED_MODULE_2__modules_scroll_js__["a" /* default */].init();
 });
+
+/***/ }),
+
+/***/ "./resources/assets/js/modules/scroll.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* Set to do semething based on scroll */
+var Scroll = function () {
+  function Scroll() {
+    _classCallCheck(this, Scroll);
+  }
+
+  _createClass(Scroll, null, [{
+    key: "init",
+    value: function init() {
+      $(window).scroll(function () {
+        // code here
+      });
+    }
+  }]);
+
+  return Scroll;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Scroll);
 
 /***/ }),
 
 /***/ "./resources/assets/sass/app.scss":
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \n  @if $debug-mode{\n     ^\n      Undefined variable: \"$debug-mode\".\n      in /Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/resources/assets/sass/themes/_default.scss (line 2, column 7)\n    at runLoaders (/Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.done [as callback] (/Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/neo-async/async.js:7974:18)\n    at options.error (/Users/asyrafhussin/Desktop/MyWork/Laravel/laravel-boilerplate-v2/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ }),
 
