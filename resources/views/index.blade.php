@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>Laravel boilerplate</h1>
-
     <script src="{{ mix('js/app.js') }}"></script>
     @include('errors.messages')
 </body>

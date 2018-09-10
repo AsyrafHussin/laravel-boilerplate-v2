@@ -1,3 +1,39 @@
 <?php
 
-// add helpers function here
+/*
+ * Save image
+ *
+ * @param object - image, string - folder name
+ * @return string - image upload path
+ */
+if (! function_exists('saveImg')) {
+    /**
+     * @param $img
+     */
+    function saveImg($img, $folder = 'img/upload')
+    {
+        $imgName         = date('mdYHis') . '.' . uniqid() . '.' . $img->getClientOriginalName();
+        $destinationPath = public_path('/' . $folder);
+        $img->move($destinationPath, $imgName);
+
+        return $folder . '/' . $imgName;
+    }
+}
+
+/*
+ * Remove image
+ *
+ * @param string - image path
+ * @return void
+ */
+if (! function_exists('removeImg')) {
+    /**
+     * @param $img
+     */
+    function removeImg($img)
+    {
+        if (file_exists(public_path('/') . $img)) {
+            unlink(public_path('/') . $img);
+        }
+    }
+}
