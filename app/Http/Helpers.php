@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Generate token.
+ *
+ * @param  int    - length token that want to generate
+ *
+ * @return string - token
+ */
+if (! function_exists('generateToken')) {
+    function generateToken($length)
+    {
+        return bin2hex(random_bytes($length));
+    }
+}
+
 /*
  * Save image
  *
