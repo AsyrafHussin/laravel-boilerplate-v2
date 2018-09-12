@@ -20667,7 +20667,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/assets/js/app.js":
+/***/ "./resources/js/app.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20678,7 +20678,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2__ = __webpack_require__("./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_sweetalert2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_scroll_js__ = __webpack_require__("./resources/assets/js/modules/scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_scroll_js__ = __webpack_require__("./resources/js/modules/scroll.js");
 // Global Import
 
 window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
@@ -20697,7 +20697,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/assets/js/modules/scroll.js":
+/***/ "./resources/js/modules/scroll.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20727,7 +20727,7 @@ var Scroll = function () {
 
 /***/ }),
 
-/***/ "./resources/assets/sass/app.scss":
+/***/ "./resources/sass/app.scss":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -20737,8 +20737,8 @@ var Scroll = function () {
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__("./resources/assets/js/app.js");
-module.exports = __webpack_require__("./resources/assets/sass/app.scss");
+__webpack_require__("./resources/js/app.js");
+module.exports = __webpack_require__("./resources/sass/app.scss");
 
 
 /***/ })
