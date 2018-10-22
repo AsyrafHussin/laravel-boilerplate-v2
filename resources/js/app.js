@@ -1,8 +1,5 @@
 // Global Import
-import jquery from 'jquery';
-window.jQuery = jquery;
-window.$ = jquery;
-window.jquery = jquery;
+window.jQuery = window.$ = require('jquery');
 import 'bootstrap';
 import swal from 'sweetalert2';
 window.swal = swal;

@@ -20763,27 +20763,22 @@ module.exports = g;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bootstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2__ = __webpack_require__("./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_sweetalert2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_scroll_js__ = __webpack_require__("./resources/js/modules/scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2__ = __webpack_require__("./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_scroll_js__ = __webpack_require__("./resources/js/modules/scroll.js");
 // Global Import
-
-window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
-window.$ = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
-window.jquery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
+window.jQuery = window.$ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
 
-window.swal = __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default.a;
+window.swal = __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default.a;
 
 // import module
 
 
 $(document).ready(function () {
-  __WEBPACK_IMPORTED_MODULE_3__modules_scroll_js__["a" /* default */].init();
+  __WEBPACK_IMPORTED_MODULE_2__modules_scroll_js__["a" /* default */].init();
 });
 
 /***/ }),
