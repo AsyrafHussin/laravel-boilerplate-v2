@@ -11,7 +11,7 @@
         "laravel/tinker": "^1.0",
         "pyaesone17/active-state": "^1.1.1",
         "asyrafhussin/laravel-page-speed": "1.8.8@dev",
-        "silber/bouncer": "v1.0.0-rc.3"
+        "silber/bouncer": "v1.0.0-rc.4"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.2",
