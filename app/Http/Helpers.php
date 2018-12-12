@@ -26,7 +26,7 @@ if (! function_exists('saveImg')) {
      */
     function saveImg($img, $folder = 'img/upload')
     {
-        $imgName         = date('mdYHis') . '.' . uniqid() . '.' . $img->getClientOriginalName();
+        $imgName         = date('mdYHis') . '.' . uniqid() . '.' . $img->getClientOriginalExtension();
         $destinationPath = public_path('/' . $folder);
         $img->move($destinationPath, $imgName);
 
