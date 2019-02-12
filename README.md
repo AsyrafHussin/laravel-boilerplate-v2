@@ -16,7 +16,7 @@ My Laravel Boilerplate v2
 -   [Adminer v4.7.1](https://www.adminer.org)
 -   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 -   [Font Awesome 5](https://fontawesome.com)
--   [Bootstrap 4.1](https://getbootstrap.com)
+-   [Bootstrap 4.3](https://getbootstrap.com)
 -   Helpers file
 -   Seeder for users and roles
 -   Auth - login,login check, logout
