@@ -1,6 +1,6 @@
 @if($errors->any())
 <script>
-    swal(
+    Swal.fire(
       'Oops...',
       'Something went wrong!',
       'error'
@@ -10,7 +10,7 @@
 
 @if (Session::has('successMessage'))
     <script>
-        swal({
+        Swal.fire({
           position: 'center',
           type: 'success',
           title: '{{ Session::get('successMessage') }}',
@@ -22,11 +22,10 @@
 
 @if (Session::has('errorMessage'))
     <script>
-        swal(
+        Swal.fire(
           'Error',
           '{{ Session::get('errorMessage') }}',
           'error'
         )
     </script>
 @endif
-
