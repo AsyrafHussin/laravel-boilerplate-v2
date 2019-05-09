@@ -17,6 +17,7 @@ My Laravel Boilerplate v2
 -   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 -   [Font Awesome 5.8.2](https://fontawesome.com)
 -   [Bootstrap 4.3.1](https://getbootstrap.com)
+-   [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 -   Helpers file
 -   Seeder for users and roles
 -   Auth - login,login check, logout
