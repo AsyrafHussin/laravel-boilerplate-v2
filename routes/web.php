@@ -18,16 +18,14 @@ Route::get('/', function () {
 /*
  * Auth
  */
-Route::name('auth:')->group(function () {
-    Route::middleware('guest')->group(function () {
-        Route::name('login')->get('login', 'AuthController@login');
-        Route::name('login:check')->post('login/check', 'AuthController@auth');
-    });
-    Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
-});
+ Route::middleware('guest')->group(function () {
+     Route::name('login')->get('login', 'AuthController@login');
+     Route::name('login.check')->post('login/check', 'AuthController@auth');
+ });
+ Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
 
 // sample route
-// Route::name('test:')->prefix('test')->group(function () {
+// Route::name('test.')->prefix('test')->group(function () {
 //     Route::name('index')->get('/', 'TestController@index');
 //     Route::name('save')->post('save', 'TestController@save');
 //     Route::name('edit')->get('edit/{id}', 'TestController@edit');
