@@ -14,7 +14,6 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
     ];
-
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
@@ -27,8 +26,6 @@ class Handler extends ExceptionHandler
 
     /**
      * Report or log an exception.
-     *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
      * @param \Exception $exception
      *
