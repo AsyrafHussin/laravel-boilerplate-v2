@@ -3,7 +3,7 @@
 rm -rf ./.git && rm -rf ./README.md
 composer install -vvv
 cp .env.example .env
-php artisan key:generate
+php artisan key:generate --ansi
 php artisan config:cache
 php artisan config:clear
 npm install
