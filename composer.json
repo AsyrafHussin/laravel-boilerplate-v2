@@ -10,7 +10,6 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "pyaesone17/active-state": "^1.1.1",
-        "asyrafhussin/laravel-page-speed": "1.8.9@dev",
         "silber/bouncer": "v1.0.0-rc.5"
     },
     "require-dev": {

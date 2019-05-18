@@ -19,13 +19,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\InlineCss::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\ElideAttributes::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\RemoveComments::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\TrimUrls::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\RemoveQuotes::class,
-        \AsyrafHussin\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
     ];
 
     /**
