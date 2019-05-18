@@ -10,7 +10,6 @@ My Laravel Boilerplate v2
 
 -   [sass-boilerplate](https://github.com/AsyrafHussin/sass-boilerplate)
 -   [active-state package](https://github.com/pyaesone17/active-state)
--   [laravel-page-speed package](https://github.com/AsyrafHussin/laravel-page-speed)
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
 -   [SweetAlert2](https://sweetalert2.github.io)
 -   [Adminer v4.7.1](https://www.adminer.org)
