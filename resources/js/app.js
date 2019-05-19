@@ -7,13 +7,9 @@ import 'bootstrap-datepicker';
 
 // import module
 import Scroll from './modules/scroll.js';
+import Vendor from './modules/vendor.js';
 
 $(document).ready(function() {
   Scroll.init();
-
-  $('.datepicker').datepicker({
-    format: "dd/mm/yyyy",
-    autoclose: true,
-    startDate: new Date()
-  });
+  Vendor.init();
 });
