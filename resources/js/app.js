@@ -9,6 +9,6 @@ import Scroll from './modules/scroll.js';
 import Vendor from './modules/vendor.js';
 
 $(document).ready(function() {
-  Scroll.init();
   Vendor.init();
+  Scroll.init();
 });
