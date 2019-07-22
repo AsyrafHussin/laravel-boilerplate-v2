@@ -38,7 +38,7 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('auth:login')->with([
+        return redirect()->route('login')->with([
             'successMessage' => 'Successfully logout',
         ]);
     }
