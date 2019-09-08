@@ -13,7 +13,7 @@ Options -Indexes
     Header append X-FRAME-OPTIONS "SAMEORIGIN"
 
     # XSS Protection Not Enabled
-    Header set X-XSS-Protection "1; mode=block"
+    # Header set X-XSS-Protection "1; mode=block"
 
     # Missing X-Content-Type-Options is not specified
     Header set X-Content-Type-Options nosniff
