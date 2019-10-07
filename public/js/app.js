@@ -19816,7 +19816,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v8.17.6
+* sweetalert2 v8.18.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22715,7 +22715,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '8.17.6';
+SweetAlert.version = '8.18.0';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
