@@ -4,7 +4,7 @@ My Laravel Boilerplate v2
 
 ## Laravel Version
 
-6.3.0
+6.4.0
 
 ## Contains
 
@@ -12,7 +12,7 @@ My Laravel Boilerplate v2
 -   [active-state package](https://github.com/pyaesone17/active-state)
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
 -   [SweetAlert2](https://sweetalert2.github.io)
--   [Adminer v4.7.3](https://www.adminer.org)
+-   [Adminer v4.7.4](https://www.adminer.org)
 -   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 -   [Font Awesome v5.11.2](https://fontawesome.com)
 -   [Bootstrap v4.3.1](https://getbootstrap.com)
