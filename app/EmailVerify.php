@@ -6,20 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmailVerify extends Model
 {
-	protected $guarded = [];
-	protected $table = 'email_verifies';
+    protected $guarded = [];
+    protected $table   = 'email_verifies';
 
-	protected $fillable = [
-		'email', 'token', 'created_at',
-	];
+    protected $fillable = [
+        'email', 'token', 'created_at',
+    ];
 
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected static function boot() {
-		parent::boot();
+    protected static function boot()
+    {
+        parent::boot();
 
-		static::creating(function ($query) {
-			$query->token = generateToken(20);
-		});
-	}
+        static::creating(function ($query) {
+            $query->token = generateToken(20);
+        });
+    }
 }
