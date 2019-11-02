@@ -6,6 +6,7 @@ cp .env.example .env
 php artisan key:generate --ansi
 php artisan config:cache
 php artisan config:clear
+php artisan storage:link
 npm install
 npm run dev
 echo "Successfully setup!"

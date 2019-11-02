@@ -24,13 +24,9 @@ if (! function_exists('saveImg')) {
     /**
      * @param $img
      */
-    function saveImg($img, $folder = 'img/upload')
+    function saveImg($img, $folder = 'images')
     {
-        $imgName         = date('mdYHis') . '.' . uniqid() . '.' . $img->getClientOriginalExtension();
-        $destinationPath = public_path('/' . $folder);
-        $img->move($destinationPath, $imgName);
-
-        return $folder . '/' . $imgName;
+        return 'storage/'. $img->store($folder);
     }
 }
 
@@ -46,8 +42,9 @@ if (! function_exists('removeImg')) {
      */
     function removeImg($img)
     {
-        if (file_exists(public_path('/') . $img)) {
-            unlink(public_path('/') . $img);
+        $img = str_replace('storage/', '', $img)
+        if (file_exists(storage_path('app/public/') . $img)) {
+            unlink(storage_path('app/public/') . $img);
         }
     }
 }
