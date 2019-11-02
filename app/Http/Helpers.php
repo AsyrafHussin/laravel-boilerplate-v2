@@ -26,7 +26,7 @@ if (! function_exists('saveImg')) {
      */
     function saveImg($img, $folder = 'images')
     {
-        return 'storage/'. $img->store($folder);
+        return 'storage/' . $img->store($folder);
     }
 }
 
