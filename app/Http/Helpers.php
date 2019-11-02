@@ -42,7 +42,7 @@ if (! function_exists('removeImg')) {
      */
     function removeImg($img)
     {
-        $img = str_replace('storage/', '', $img)
+        $img = str_replace('storage/', '', $img);
         if (file_exists(storage_path('app/public/') . $img)) {
             unlink(storage_path('app/public/') . $img);
         }
