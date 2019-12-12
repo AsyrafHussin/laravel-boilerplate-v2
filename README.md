@@ -13,8 +13,8 @@ My Laravel Boilerplate v2
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
 -   [SweetAlert2](https://sweetalert2.github.io)
 -   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
--   [Font Awesome v5.11.2](https://fontawesome.com)
--   [Bootstrap v4.3.1](https://getbootstrap.com)
+-   [Font Awesome v5.12.0](https://fontawesome.com)
+-   [Bootstrap v4.4.1](https://getbootstrap.com)
 -   [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 -   Helpers file
 -   Seeder for users and roles
