@@ -8,6 +8,7 @@ My Laravel Boilerplate v2
 
 ## Contains
 
+-   [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
 -   [sass-boilerplate](https://github.com/AsyrafHussin/sass-boilerplate)
 -   [active-state package](https://github.com/pyaesone17/active-state)
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
