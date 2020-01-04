@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
-/**
+/*
  * Generate token.
  *
  * @param  int    - length token that want to generate
@@ -58,14 +58,15 @@ if (! function_exists('removeImg')) {
  *
  * @return void
  */
-if (!function_exists('customPaginate')) {
-
-    function customPaginate($items, $path = null, $perPage = 20, $page = null) {
-        $path = $path ? $path : Paginator::resolveCurrentPage();
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+if (! function_exists('customPaginate')) {
+    function customPaginate($items, $path = null, $perPage = 20, $page = null)
+    {
+        $path  = $path ? $path : Paginator::resolveCurrentPage();
+        $page  = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
+
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [
-            'path' => $path,
+            'path'     => $path,
             'pageName' => 'page',
         ]);
     }
