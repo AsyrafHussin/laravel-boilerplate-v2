@@ -4,7 +4,7 @@ My Laravel Boilerplate v2
 
 ## Laravel Version
 
-6.10.1
+6.12.0
 
 ## Contains
 
