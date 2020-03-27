@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,14 +11,23 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.js('resources/js/app.js', 'public/js')
- 	.autoload({jQuery: 'jquery', $: 'jquery', jquery: 'jquery'})
-    .sass('resources/sass/app.scss', 'public/css').options({
-    	processCssUrls: true,
-        postCss: [ 
-            require('autoprefixer'),
-            require('cssnano'),
+mix.webpackConfig({
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                loader: "import-glob-loader"
+            }
         ]
+    }
+});
+
+mix.js("resources/js/app.js", "public/js")
+    .autoload({ jQuery: "jquery", $: "jquery", jquery: "jquery" })
+    .sass("resources/sass/app.scss", "public/css")
+    .options({
+        processCssUrls: true,
+        postCss: [require("autoprefixer"), require("cssnano")]
     })
-    .browserSync('127.0.0.1:8000')
+    .browserSync("127.0.0.1:8000")
     .version();

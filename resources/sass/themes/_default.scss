@@ -1,7 +1,7 @@
-*{
-  @if $debug-mode{
-    outline: 1px solid red;
-  }
+* {
+    @if $debug-mode {
+        outline: 1px solid red;
+    }
 }
 
 html * {
