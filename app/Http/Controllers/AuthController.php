@@ -28,9 +28,9 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             // redirect dashboard
         } else {
-            return redirect()->back()->with([
-                 'errorMessage' => 'Invalid email or password',
-             ]);
+            return back()->with([
+                'errorMessage' => 'Invalid email or password',
+            ]);
         }
     }
 
