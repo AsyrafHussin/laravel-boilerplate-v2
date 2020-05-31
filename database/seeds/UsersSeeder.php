@@ -21,12 +21,12 @@ class UsersSeeder extends Seeder
         ];
 
         foreach ($users as $key => $user) {
-            $user = User::create([
+            $user_created = User::create([
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'password' => bcrypt($user['password']),
             ]);
-            $user->assign($key);
+            $user_created->assign($key);
         }
     }
 }
