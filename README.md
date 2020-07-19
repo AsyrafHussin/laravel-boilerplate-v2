@@ -21,7 +21,7 @@ My Laravel Boilerplate v2
 -   Seeder for users and roles
 -   Auth - login,login check, logout
 -   Success and error message using SweetAlert2
--   Asia/Kuala_Lumpur timezone
+-   Asia/Kuala_Lumpur timezonep
 
 ## Getting Started
 
