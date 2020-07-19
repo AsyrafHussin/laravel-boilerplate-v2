@@ -4,7 +4,7 @@ My Laravel Boilerplate v2
 
 ## Laravel Version
 
-7.16.1
+7.20.0
 
 ## Contains
 
@@ -14,8 +14,8 @@ My Laravel Boilerplate v2
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
 -   [SweetAlert2](https://sweetalert2.github.io)
 -   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
--   [Font Awesome v5.13.0](https://fontawesome.com)
--   [Bootstrap v4.5.0](https://getbootstrap.com)
+-   [Font Awesome v5](https://fontawesome.com)
+-   [Bootstrap v4](https://getbootstrap.com)
 -   [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 -   Helpers file
 -   Seeder for users and roles
