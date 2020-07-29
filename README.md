@@ -13,7 +13,6 @@ My Laravel Boilerplate v2
 -   [active-state package](https://github.com/pyaesone17/active-state)
 -   [bouncer package](https://github.com/JosephSilber/bouncer)
 -   [SweetAlert2](https://sweetalert2.github.io)
--   [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 -   [Font Awesome v5](https://fontawesome.com)
 -   [Bootstrap v4](https://getbootstrap.com)
 -   [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
