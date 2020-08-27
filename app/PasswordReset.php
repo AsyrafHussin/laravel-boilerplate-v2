@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PasswordReset extends Model
 {
-    protected $guarded = [];
-    protected $table   = 'password_resets';
+    protected $table = 'password_resets';
 
     protected $fillable = [
         'email', 'token', 'created_at',

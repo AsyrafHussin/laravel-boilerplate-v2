@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmailVerify extends Model
 {
-    protected $guarded = [];
-    protected $table   = 'email_verifies';
+    protected $table = 'email_verifies';
 
     protected $fillable = [
         'email', 'token', 'created_at',
