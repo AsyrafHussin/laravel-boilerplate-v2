@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmailVerify extends Model
+class PasswordReset extends Model
 {
-    protected $table = 'email_verifies';
+    protected $table = 'password_resets';
 
     protected $fillable = [
         'email', 'token', 'created_at',

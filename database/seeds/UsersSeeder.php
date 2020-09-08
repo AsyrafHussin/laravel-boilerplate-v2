@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder
@@ -16,8 +16,8 @@ class UsersSeeder extends Seeder
             'admin' => [
                 'name' => 'admin',
                 'email' => 'admin@domain.com',
-                'password' => 'admin123'
-            ]
+                'password' => 'admin123',
+            ],
         ];
 
         foreach ($users as $key => $user) {
