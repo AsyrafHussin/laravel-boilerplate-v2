@@ -12,21 +12,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
-            'admin' => [
-                'name' => 'admin',
-                'email' => 'admin@domain.com',
-                'password' => 'admin123',
-            ],
-        ];
-
-        foreach ($users as $key => $user) {
-            $user_created = User::create([
-                'name' => $user['name'],
-                'email' => $user['email'],
-                'password' => bcrypt($user['password']),
-            ]);
-            $user_created->assign($key);
-        }
+        $user = User::factory()->admin()->create();
+        $user->assign('admin');
     }
 }
