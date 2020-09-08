@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RolesSeeder extends Seeder
@@ -11,13 +12,6 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        $roles = ['admin'];
-
-        foreach ($roles as $role) {
-            DB::table('roles')->insert([
-                'name' => $role,
-                'title' => $role,
-            ]);
-        }
+        Role::factory()->admin()->create();
     }
 }
