@@ -8,7 +8,7 @@ if (! function_exists('generateToken')) {
     /**
      * Generate token.based on length.
      *
-     * @param int $length
+     * @param int  $length
      * @return string
      */
     function generateToken($length)
@@ -21,8 +21,8 @@ if (! function_exists('saveImg')) {
     /**
      * Save image.to storage.
      *
-     * @param object $img
-     * @param string $folder
+     * @param object  $img
+     * @param string  $folder
      * @return string
      */
     function saveImg($img, $folder = 'images')
@@ -35,7 +35,7 @@ if (! function_exists('removeImg')) {
     /**
      * Remove image.from storage.
      *
-     * @param string $img
+     * @param string  $img
      * @return void
      */
     function removeImg($img)
@@ -51,10 +51,10 @@ if (! function_exists('customPaginate')) {
     /**
      * Custom paginate for collection.
      *
-     * @param mixed $items
-     * @param int $perpage
-     * @param string|null $path
-     * @param  int|null $currentPage
+     * @param mixed  $items
+     * @param int  $perpage
+     * @param string|null  $path
+     * @param  int|null  $currentPage
      * @return Illuminate\Pagination\LengthAwarePaginator
      */
     function customPaginate($items, $perPage = 20, $path = null, $currentPage = null)
