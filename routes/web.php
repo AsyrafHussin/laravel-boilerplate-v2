@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest
 Route::get('/', function () {
     return view('index');
 });
 
-/*
- * Auth
- */
-Route::middleware('guest')->group(function () {
-    Route::name('login')->get('login', 'AuthController@login');
-    Route::name('login.check')->post('login/check', 'AuthController@auth');
+// Auth
+Route::middleware('guest')->prefix('login')->group(function () {
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('check', [AuthController::class, 'auth'])->name('login.check');
 });
-Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
+Route::middleware('auth')->group(function () {
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
 
 // sample route
 // Route::name('test.')->prefix('test')->group(function () {
-//     Route::name('index')->get('/', 'TestController@index');
-//     Route::name('save')->post('save', 'TestController@save');
-//     Route::name('edit')->get('edit/{id}', 'TestController@edit');
-//     Route::name('update')->post('update/{id}', 'TestController@update');
-//     Route::name('delete')->get('delete/{id}', 'TestController@delete');
+//     Route::get('/', [TestController::class, 'index'])->name('index');
+//     Route::post('save', [TestController::class, 'save'])->name('save');
+//     Route::get('edit/{id}', [TestController::class, 'edit'])->name('edit');
+//     Route::post('update/{id}', [TestController::class, 'update'])->name('update');
+//     Route::get('delete/{id}', [TestController::class, 'delete'])->name('delete');
 // });
