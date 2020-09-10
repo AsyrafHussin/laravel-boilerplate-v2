@@ -17,23 +17,23 @@ use Illuminate\Support\Facades\Route;
 
 // Guest
 Route::middleware('guest')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::name('index')->get('/', [HomeController::class, 'index']);
 });
 
 // Auth
 Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthController::class, 'login'])->name('login');
-    Route::post('login/check', [AuthController::class, 'auth'])->name('login.check');
+    Route::name('login')->get('login', [AuthController::class, 'login']);
+    Route::name('login.check')->post('login/check', [AuthController::class, 'auth']);
 });
 Route::middleware('auth')->group(function () {
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::name('logout')->get('logout', [AuthController::class, 'logout']);
 });
 
 // sample route
 // Route::name('test.')->prefix('test')->group(function () {
-//     Route::get('/', [TestController::class, 'index'])->name('index');
-//     Route::post('save', [TestController::class, 'save'])->name('save');
-//     Route::get('edit/{id}', [TestController::class, 'edit'])->name('edit');
-//     Route::post('update/{id}', [TestController::class, 'update'])->name('update');
-//     Route::get('delete/{id}', [TestController::class, 'delete'])->name('delete');
+//     Route::name('index')->get('/', [TestController::class, 'index']);
+//     Route::name('save')->post('save', [TestController::class, 'save']);
+//     Route::name('edit')->get('edit/{id}', [TestController::class, 'edit']);
+//     Route::name('update')->post('update/{id}', [TestController::class, 'update']);
+//     Route::name('delete')->get('delete/{id}', [TestController::class, 'delete']);
 // });
