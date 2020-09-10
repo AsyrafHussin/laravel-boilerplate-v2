@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +20,11 @@ Route::get('/', function () {
 /*
  * Auth
  */
- Route::middleware('guest')->group(function () {
-     Route::name('login')->get('login', 'AuthController@login');
-     Route::name('login.check')->post('login/check', 'AuthController@auth');
- });
- Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
+Route::middleware('guest')->group(function () {
+    Route::name('login')->get('login', 'AuthController@login');
+    Route::name('login.check')->post('login/check', 'AuthController@auth');
+});
+Route::name('logout')->middleware('auth')->get('logout', 'AuthController@logout');
 
 // sample route
 // Route::name('test.')->prefix('test')->group(function () {
