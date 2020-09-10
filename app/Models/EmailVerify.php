@@ -23,13 +23,6 @@ class EmailVerify extends Model
     ];
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * The "boot" method of the model.
      *
      * @return void
@@ -38,8 +31,6 @@ class EmailVerify extends Model
     {
         parent::boot();
 
-        static::creating(function ($query) {
-            $query->token = generateToken(20);
-        });
+        static::creating(fn ($query) => $query->token = generateToken(20));
     }
 }

@@ -16,7 +16,7 @@ class CreateEmailVerifiesTable extends Migration
         Schema::create('email_verifies', function (Blueprint $table) {
             $table->string('email')->index();
             $table->longText('token');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 
