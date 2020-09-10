@@ -21,9 +21,9 @@ Route::middleware('guest')->group(function () {
 });
 
 // Auth
-Route::middleware('guest')->prefix('login')->group(function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('check', [AuthController::class, 'auth'])->name('login.check');
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login/check', [AuthController::class, 'auth'])->name('login.check');
 });
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
