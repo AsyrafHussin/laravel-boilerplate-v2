@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Guest
-Route::get('/', function () {
-    return view('index');
+Route::name('home.')->middleware('guest')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('index');
 });
 
 // Auth
