@@ -18,9 +18,7 @@ class EmailVerify extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'email', 'token', 'created_at',
-    ];
+    protected $fillable = ['email', 'token', 'created_at'];
 
     /**
      * The "boot" method of the model.
