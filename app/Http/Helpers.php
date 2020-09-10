@@ -6,11 +6,10 @@ use Illuminate\Pagination\Paginator;
 
 if (! function_exists('generateToken')) {
     /**
-     * Generate token.
+     * Generate token.based on length.
      *
-     * @param int - length token that want to generate
-     *
-     * @return string - token
+     * @param int $length
+     * @return string
      */
     function generateToken($length)
     {
@@ -20,12 +19,11 @@ if (! function_exists('generateToken')) {
 
 if (! function_exists('saveImg')) {
     /**
-     * Save image.
+     * Save image.to storage.
      *
-     * @param object - image
-     * @param string - folder name
-     *
-     * @return string - image upload path
+     * @param object $img
+     * @param string $folder
+     * @return string
      */
     function saveImg($img, $folder = 'images')
     {
@@ -35,10 +33,9 @@ if (! function_exists('saveImg')) {
 
 if (! function_exists('removeImg')) {
     /**
-     * Remove image.
+     * Remove image.from storage.
      *
-     * @param string - image path
-     *
+     * @param string $img
      * @return void
      */
     function removeImg($img)
@@ -54,15 +51,19 @@ if (! function_exists('customPaginate')) {
     /**
      * Custom paginate for collection.
      *
+     * @param mixed $items
+     * @param int $perpage
+     * @param string|null $path
+     * @param  int|null $currentPage
      * @return Illuminate\Pagination\LengthAwarePaginator
      */
-    function customPaginate($items, $path = null, $perPage = 20, $page = null)
+    function customPaginate($items, $perPage = 20, $path = null, $currentPage = null)
     {
         $path = $path ? $path : Paginator::resolveCurrentPage();
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $page = $currentPage ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
 
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $currentPage, [
             'path'     => $path,
             'pageName' => 'page',
         ]);
