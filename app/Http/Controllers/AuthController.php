@@ -16,11 +16,22 @@ class AuthController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Show login page.
+     *
+     * @return \Illuminate\View\View
+     */
     public function login()
     {
         return view('auth.login');
     }
 
+    /**
+     * Handle a login request to the application.
+     *
+     * @param Request  $request
+     * @return Illuminate\Http\RedirectResponse
+     */
     public function auth(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -34,6 +45,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Log the user out of the application.
+     *
+     * @return Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         auth()->logout();
