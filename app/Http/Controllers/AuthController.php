@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -29,10 +30,10 @@ class AuthController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param Request  $request
+     * @param LoginRequest  $request
      * @return Illuminate\Http\RedirectResponse
      */
-    public function auth(Request $request)
+    public function auth(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
 
