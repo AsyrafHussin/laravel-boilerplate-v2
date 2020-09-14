@@ -9,12 +9,12 @@
     </script>
 @endif
 
-@if (Session::has('successMessage'))
+@if (session('successMessage'))
     <script>
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: "{{ Session::get('successMessage') }}",
+            title: "{{ session('successMessage') }}",
             showConfirmButton: false,
             timer: 1500
         })
@@ -22,11 +22,11 @@
     </script>
 @endif
 
-@if (Session::has('errorMessage'))
+@if (session('errorMessage'))
     <script>
         Swal.fire(
             'Error',
-            "{{ Session::get('errorMessage') }}",
+            "{{ session('errorMessage') }}",
             'error'
         )
 
