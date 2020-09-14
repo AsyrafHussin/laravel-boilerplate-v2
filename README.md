@@ -21,7 +21,7 @@ My Laravel Boilerplate v2
 -   Auth - login,login check, logout
 -   Admin route
 -   Success and error message using SweetAlert2
--   Asia/Kuala_Lumpur timezonep
+-   Asia/Kuala_Lumpur timezone
 
 ## Getting Started
 
