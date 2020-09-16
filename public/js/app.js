@@ -23391,7 +23391,7 @@ window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a; // import modu
 
 
 
-$(document).ready(function () {
+jQuery(function () {
   _modules_vendor_js__WEBPACK_IMPORTED_MODULE_3__["default"].init();
   _modules_scroll_js__WEBPACK_IMPORTED_MODULE_2__["default"].init();
 });
