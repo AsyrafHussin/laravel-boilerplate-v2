@@ -11,4 +11,4 @@ import Vendor from './modules/vendor.js';
 jQuery(function () {
     Vendor.init();
     Scroll.init();
-})
+});
