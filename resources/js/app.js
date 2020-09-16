@@ -8,7 +8,7 @@ window.Swal = Swal;
 import Scroll from './modules/scroll.js';
 import Vendor from './modules/vendor.js';
 
-$(document).ready(function() {
-  Vendor.init();
-  Scroll.init();
-});
+jQuery(function () {
+    Vendor.init();
+    Scroll.init();
+})
