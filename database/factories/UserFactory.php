@@ -39,10 +39,13 @@ class UserFactory extends Factory
      */
     public function admin()
     {
-        return $this->state([
-            'name' => 'admin',
-            'email' => 'admin@domain.com',
-            'password' => Hash::make('admin123'),
-        ]);
+        return $this
+            ->state([
+                'name' => 'admin',
+                'email' => 'admin@domain.com',
+                'password' => Hash::make('admin123'),
+            ])->afterCreating(function (User $user) {
+                $user->assign('admin');
+            });
     }
 }

@@ -12,7 +12,6 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->admin()->create();
-        $user->assign('admin');
+        User::factory()->admin()->create();
     }
 }
