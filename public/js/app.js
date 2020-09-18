@@ -20077,7 +20077,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v10.0.2
+* sweetalert2 v10.2.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -20657,6 +20657,13 @@ Popper.Defaults = Defaults;
     elem.style.opacity = '';
     elem.style.display = 'none';
   };
+  var setStyle = function setStyle(parent, selector, property, value) {
+    var el = parent.querySelector(selector);
+
+    if (el) {
+      el.style[property] = value;
+    }
+  };
   var toggle = function toggle(elem, condition, display) {
     condition ? show(elem, display) : hide(elem);
   }; // borrowed from jquery $(elem).is(':visible') implementation
@@ -21232,10 +21239,10 @@ Popper.Defaults = Defaults;
   };
 
   var renderIcon = function renderIcon(instance, params) {
-    var innerParams = privateProps.innerParams.get(instance); // if the give icon already rendered, apply the custom class without re-rendering the icon
+    var innerParams = privateProps.innerParams.get(instance); // if the given icon already rendered, apply the styling without re-rendering the icon
 
     if (innerParams && params.icon === innerParams.icon && getIcon()) {
-      applyCustomClass(getIcon(), params, 'icon');
+      applyStyles(getIcon(), params);
       return;
     }
 
@@ -21250,9 +21257,7 @@ Popper.Defaults = Defaults;
       show(icon); // Custom or default content
 
       setContent(icon, params);
-      adjustSuccessIconBackgoundColor(); // Custom class
-
-      applyCustomClass(icon, params, 'icon'); // Animate icon
+      applyStyles(icon, params); // Animate icon
 
       addClass(icon, params.showClass.icon);
     } else {
@@ -21266,6 +21271,15 @@ Popper.Defaults = Defaults;
     for (var i = 0; i < icons.length; i++) {
       hide(icons[i]);
     }
+  };
+
+  var applyStyles = function applyStyles(icon, params) {
+    // Icon color
+    setColor(icon, params); // Success icon background color
+
+    adjustSuccessIconBackgoundColor(); // Custom class
+
+    applyCustomClass(icon, params, 'icon');
   }; // Adjust success icon background color to match the popup background color
 
 
@@ -21296,6 +21310,22 @@ Popper.Defaults = Defaults;
       };
       setInnerHtml(icon, iconContent(defaultIconHtml[params.icon]));
     }
+  };
+
+  var setColor = function setColor(icon, params) {
+    if (!params.iconColor) {
+      return;
+    }
+
+    icon.style.color = params.iconColor;
+    icon.style.borderColor = params.iconColor;
+
+    for (var _i = 0, _arr = ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']; _i < _arr.length; _i++) {
+      var sel = _arr[_i];
+      setStyle(icon, sel, 'backgroundColor', params.iconColor);
+    }
+
+    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
   };
 
   var iconContent = function iconContent(content) {
@@ -21725,6 +21755,7 @@ Popper.Defaults = Defaults;
     html: '',
     footer: '',
     icon: undefined,
+    iconColor: undefined,
     iconHtml: undefined,
     toast: false,
     animation: true,
@@ -21800,7 +21831,7 @@ Popper.Defaults = Defaults;
     onDestroy: undefined,
     scrollbarPadding: true
   };
-  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'footer', 'hideClass', 'html', 'icon', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText'];
+  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText'];
   var deprecatedParams = {
     animation: 'showClass" and "hideClass'
   };
@@ -23168,7 +23199,7 @@ Popper.Defaults = Defaults;
       if (Swal.isUpdatableParameter(param)) {
         validUpdatableParams[param] = params[param];
       } else {
-        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js"));
+        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js\n\nIf you think this parameter should be updatable, request it here: https://github.com/sweetalert2/sweetalert2/issues/new?template=02_feature_request.md"));
       }
     });
 
@@ -23323,7 +23354,7 @@ Popper.Defaults = Defaults;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.0.2';
+  SweetAlert.version = '10.2.0';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
@@ -23381,8 +23412,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_scroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll.js */ "./resources/js/modules/scroll.js");
-/* harmony import */ var _modules_vendor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/vendor.js */ "./resources/js/modules/vendor.js");
+/* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules */ "./resources/js/modules/index.js");
 // Global Import
 window.jQuery = window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -23390,11 +23420,30 @@ window.jQuery = window.$ = __webpack_require__(/*! jquery */ "./node_modules/jqu
 window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a; // import module
 
 
-
 jQuery(function () {
-  _modules_vendor_js__WEBPACK_IMPORTED_MODULE_3__["default"].init();
-  _modules_scroll_js__WEBPACK_IMPORTED_MODULE_2__["default"].init();
+  _modules__WEBPACK_IMPORTED_MODULE_2__["Vendor"].init();
+  _modules__WEBPACK_IMPORTED_MODULE_2__["Scroll"].init();
 });
+
+/***/ }),
+
+/***/ "./resources/js/modules/index.js":
+/*!***************************************!*\
+  !*** ./resources/js/modules/index.js ***!
+  \***************************************/
+/*! exports provided: Scroll, Vendor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll */ "./resources/js/modules/scroll.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Scroll", function() { return _scroll__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor */ "./resources/js/modules/vendor.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Vendor", function() { return _vendor__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
 
 /***/ }),
 
