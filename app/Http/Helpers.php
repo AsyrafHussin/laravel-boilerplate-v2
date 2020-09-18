@@ -47,6 +47,19 @@ if (! function_exists('removeImg')) {
     }
 }
 
+if (! function_exists('checkRole')) {
+    /**
+     * Validate user's role.
+     *
+     * @param string  $role
+     * @return bool
+     */
+    function checkRole($role)
+    {
+        return auth()->user()->isAn($role);
+    }
+}
+
 if (! function_exists('customPaginate')) {
     /**
      * Custom paginate for collection.
