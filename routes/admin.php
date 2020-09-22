@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('index')->get('/', [DashboardController::class, 'index']);
+Route::name('home')->get('home', [DashboardController::class, 'index']);
