@@ -20077,7 +20077,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v10.2.0
+* sweetalert2 v10.3.1
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -20348,7 +20348,7 @@ Popper.Defaults = Defaults;
    * Show a one-time console warning about deprecated params/methods
    */
 
-  var warnAboutDepreation = function warnAboutDepreation(deprecatedParam, useInstead) {
+  var warnAboutDeprecation = function warnAboutDeprecation(deprecatedParam, useInstead) {
     warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
   };
   /**
@@ -20650,11 +20650,9 @@ Popper.Defaults = Defaults;
   };
   var show = function show(elem) {
     var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
-    elem.style.opacity = '';
     elem.style.display = display;
   };
   var hide = function hide(elem) {
-    elem.style.opacity = '';
     elem.style.display = 'none';
   };
   var setStyle = function setStyle(parent, selector, property, value) {
@@ -21543,8 +21541,10 @@ Popper.Defaults = Defaults;
     renderActions(instance, params);
     renderFooter(instance, params);
 
-    if (typeof params.onRender === 'function') {
-      params.onRender(getPopup());
+    if (typeof params.didRender === 'function') {
+      params.didRender(getPopup());
+    } else if (typeof params.onRender === 'function') {
+      params.onRender(getPopup()); // @deprecated
     }
   };
 
@@ -21825,15 +21825,27 @@ Popper.Defaults = Defaults;
     progressStepsDistance: undefined,
     onBeforeOpen: undefined,
     onOpen: undefined,
+    willOpen: undefined,
+    didOpen: undefined,
     onRender: undefined,
+    didRender: undefined,
     onClose: undefined,
     onAfterClose: undefined,
+    willClose: undefined,
+    didClose: undefined,
     onDestroy: undefined,
+    didDestroy: undefined,
     scrollbarPadding: true
   };
-  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText'];
+  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
   var deprecatedParams = {
-    animation: 'showClass" and "hideClass'
+    animation: 'showClass" and "hideClass',
+    onBeforeOpen: 'willOpen',
+    onOpen: 'didOpen',
+    onRender: 'didRender',
+    onClose: 'willClose',
+    onAfterClose: 'didClose',
+    onDestroy: 'didDestroy'
   };
   var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusDeny', 'focusCancel', 'heightAuto', 'keydownListenerCapture'];
   /**
@@ -21875,7 +21887,7 @@ Popper.Defaults = Defaults;
 
   var checkIfParamIsDeprecated = function checkIfParamIsDeprecated(param) {
     if (isDeprecatedParameter(param)) {
-      warnAboutDepreation(param, isDeprecatedParameter(param));
+      warnAboutDeprecation(param, isDeprecatedParameter(param));
     }
   };
   /**
@@ -22147,12 +22159,12 @@ Popper.Defaults = Defaults;
    * Instance method to close sweetAlert
    */
 
-  function removePopupAndResetState(instance, container, isToast$$1, onAfterClose) {
+  function removePopupAndResetState(instance, container, isToast$$1, didClose) {
     if (isToast$$1) {
-      triggerOnAfterCloseAndDispose(instance, onAfterClose);
+      triggerDidCloseAndDispose(instance, didClose);
     } else {
       restoreActiveElement().then(function () {
-        return triggerOnAfterCloseAndDispose(instance, onAfterClose);
+        return triggerDidCloseAndDispose(instance, didClose);
       });
       globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
         capture: globalState.keydownListenerCapture
@@ -22225,22 +22237,29 @@ Popper.Defaults = Defaults;
 
     var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
     var onClose = innerParams.onClose,
-        onAfterClose = innerParams.onAfterClose;
-
-    if (onClose !== null && typeof onClose === 'function') {
-      onClose(popup);
-    }
+        onAfterClose = innerParams.onAfterClose,
+        willClose = innerParams.willClose,
+        didClose = innerParams.didClose;
+    runDidClose(popup, willClose, onClose);
 
     if (animationIsSupported) {
-      animatePopup(instance, popup, container, onAfterClose);
+      animatePopup(instance, popup, container, didClose !== null && didClose !== void 0 ? didClose : onAfterClose);
     } else {
       // Otherwise, remove immediately
-      removePopupAndResetState(instance, container, isToast(), onAfterClose);
+      removePopupAndResetState(instance, container, isToast(), didClose !== null && didClose !== void 0 ? didClose : onAfterClose);
     }
   };
 
-  var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
-    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
+  var runDidClose = function runDidClose(popup, willClose, onClose) {
+    if (willClose !== null && typeof willClose === 'function') {
+      willClose(popup);
+    } else if (onClose !== null && typeof onClose === 'function') {
+      onClose(popup); // @deprecated
+    }
+  };
+
+  var animatePopup = function animatePopup(instance, popup, container, didClose) {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), didClose);
     popup.addEventListener(animationEndEvent, function (e) {
       if (e.target === popup) {
         globalState.swalCloseEventFinishedCallback();
@@ -22249,10 +22268,10 @@ Popper.Defaults = Defaults;
     });
   };
 
-  var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
+  var triggerDidCloseAndDispose = function triggerDidCloseAndDispose(instance, didClose) {
     setTimeout(function () {
-      if (typeof onAfterClose === 'function') {
-        onAfterClose();
+      if (typeof didClose === 'function') {
+        didClose();
       }
 
       instance._destroy();
@@ -22463,15 +22482,17 @@ Popper.Defaults = Defaults;
   /**
    * Open popup, add necessary classes and styles, fix scrollbar
    *
-   * @param {Array} params
+   * @param params
    */
 
   var openPopup = function openPopup(params) {
     var container = getContainer();
     var popup = getPopup();
 
-    if (typeof params.onBeforeOpen === 'function') {
-      params.onBeforeOpen(popup);
+    if (typeof params.willOpen === 'function') {
+      params.willOpen(popup);
+    } else if (typeof params.onBeforeOpen === 'function') {
+      params.onBeforeOpen(popup); // @deprecated
     }
 
     var bodyStyles = window.getComputedStyle(document.body);
@@ -22489,16 +22510,23 @@ Popper.Defaults = Defaults;
       globalState.previousActiveElement = document.activeElement;
     }
 
-    if (typeof params.onOpen === 'function') {
-      setTimeout(function () {
-        return params.onOpen(popup);
-      });
-    }
-
+    runDidOpen(popup, params);
     removeClass(container, swalClasses['no-transition']);
   };
 
-  function swalOpenAnimationFinished(event) {
+  var runDidOpen = function runDidOpen(popup, params) {
+    if (typeof params.didOpen === 'function') {
+      setTimeout(function () {
+        return params.didOpen(popup);
+      });
+    } else if (typeof params.onOpen === 'function') {
+      setTimeout(function () {
+        return params.onOpen(popup);
+      }); // @deprecated
+    }
+  };
+
+  var swalOpenAnimationFinished = function swalOpenAnimationFinished(event) {
     var popup = getPopup();
 
     if (event.target !== popup) {
@@ -22508,7 +22536,7 @@ Popper.Defaults = Defaults;
     var container = getContainer();
     popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
     container.style.overflowY = 'auto';
-  }
+  };
 
   var setScrollingVisibility = function setScrollingVisibility(container, popup) {
     if (animationEndEvent && hasCssAnimation(popup)) {
@@ -22534,10 +22562,16 @@ Popper.Defaults = Defaults;
   };
 
   var addClasses$1 = function addClasses(container, popup, params) {
-    addClass(container, params.showClass.backdrop);
-    show(popup); // Animate popup right after showing it
+    addClass(container, params.showClass.backdrop); // the workaround with setting/unsetting opacity is needed for #2019 and 2059
 
-    addClass(popup, params.showClass.popup);
+    popup.style.setProperty('opacity', '0', 'important');
+    show(popup);
+    setTimeout(function () {
+      // Animate popup right after showing it
+      addClass(popup, params.showClass.popup); // and remove the opacity workaround
+
+      popup.style.removeProperty('opacity');
+    });
     addClass([document.documentElement, document.body], swalClasses.shown);
 
     if (params.heightAuto && params.backdrop && !params.toast) {
@@ -23236,12 +23270,17 @@ Popper.Defaults = Defaults;
       delete globalState.deferDisposalTimer;
     }
 
-    if (typeof innerParams.onDestroy === 'function') {
-      innerParams.onDestroy();
-    }
-
+    runDidDestroy(innerParams);
     disposeSwal(this);
   }
+
+  var runDidDestroy = function runDidDestroy(innerParams) {
+    if (typeof innerParams.didDestroy === 'function') {
+      innerParams.didDestroy();
+    } else if (typeof innerParams.onDestroy === 'function') {
+      innerParams.onDestroy(); // @deprecated
+    }
+  };
 
   var disposeSwal = function disposeSwal(instance) {
     // Unset this.params so GC will dispose it (#1569)
@@ -23354,7 +23393,7 @@ Popper.Defaults = Defaults;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.2.0';
+  SweetAlert.version = '10.3.1';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
@@ -23471,7 +23510,7 @@ var Scroll = /*#__PURE__*/function () {
   _createClass(Scroll, null, [{
     key: "init",
     value: function init() {
-      $(window).scroll(function () {// code here
+      $(window).scroll(function () {// $('nav').toggleClass('active', $(this).scrollTop() > 50);
       });
     }
   }]);
