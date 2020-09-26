@@ -18,8 +18,9 @@ My Laravel Boilerplate v2
 -   [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker)
 -   Helpers file
 -   Seeder for users and roles
--   Auth - login,login check, logout
--   Admin route
+-   Auth - Login and Register
+-   Auth, Amin and User route
+-   Master Page - Auth and Dashboard
 -   Success and error message using SweetAlert2
 -   Asia/Kuala_Lumpur timezone
 
