@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('guest')->group(function () {
-    // login
-    Route::name('login')->get('login', [LoginController::class, 'index']);
-    Route::name('login.check')->post('login/check', [LoginController::class, 'auth']);
+// Route::middleware('guest')->group(function () {
+//     // login
+//     Route::name('login')->get('login', [LoginController::class, 'index']);
+//     Route::name('login.check')->post('login/check', [LoginController::class, 'auth']);
 
-    // register
-    Route::name('register')->get('register', [RegisterController::class, 'index']);
-    Route::name('register.save')->get('register/save', [RegisterController::class, 'save']);
-});
-Route::middleware('auth')->group(function () {
-    Route::name('logout')->get('logout', [LoginController::class, 'logout']);
-});
+//     // register
+//     Route::name('register')->get('register', [RegisterController::class, 'index']);
+//     Route::name('register.save')->get('register/save', [RegisterController::class, 'save']);
+// });
+// Route::middleware('auth')->group(function () {
+//     Route::name('logout')->get('logout', [LoginController::class, 'logout']);
+// });
