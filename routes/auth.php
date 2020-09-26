@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('guest')->group(function () {
-    Route::name('login')->get('login', [AuthController::class, 'login']);
-    Route::name('login.check')->post('login/check', [AuthController::class, 'auth']);
+    Route::name('login')->get('login', [LoginController::class, 'login']);
+    Route::name('login.check')->post('login/check', [LoginController::class, 'auth']);
 });
 Route::middleware('auth')->group(function () {
-    Route::name('logout')->get('logout', [AuthController::class, 'logout']);
+    Route::name('logout')->get('logout', [LoginController::class, 'logout']);
 });
