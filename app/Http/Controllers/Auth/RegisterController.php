@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -19,9 +22,19 @@ class RegisterController extends Controller
     /**
      * Handle user registration.
      *
-     * @return void
+     * @param RegisterRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function save()
+    public function save(RegisterRequest $request)
     {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user->assign('user');
+
+        return redirect()->route('login')->with('successMessage', "You've successfully registered. Now you can login.");
     }
 }
