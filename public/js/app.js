@@ -20077,7 +20077,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v10.3.1
+* sweetalert2 v10.3.5
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22243,10 +22243,10 @@ Popper.Defaults = Defaults;
     runDidClose(popup, willClose, onClose);
 
     if (animationIsSupported) {
-      animatePopup(instance, popup, container, didClose !== null && didClose !== void 0 ? didClose : onAfterClose);
+      animatePopup(instance, popup, container, didClose || onAfterClose);
     } else {
       // Otherwise, remove immediately
-      removePopupAndResetState(instance, container, isToast(), didClose !== null && didClose !== void 0 ? didClose : onAfterClose);
+      removePopupAndResetState(instance, container, isToast(), didClose || onAfterClose);
     }
   };
 
@@ -22479,6 +22479,7 @@ Popper.Defaults = Defaults;
     init(params);
   }
 
+  var SHOW_CLASS_TIMEOUT = 10;
   /**
    * Open popup, add necessary classes and styles, fix scrollbar
    *
@@ -22499,7 +22500,9 @@ Popper.Defaults = Defaults;
     var initialBodyOverflow = bodyStyles.overflowY;
     addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
 
-    setScrollingVisibility(container, popup);
+    setTimeout(function () {
+      setScrollingVisibility(container, popup);
+    }, SHOW_CLASS_TIMEOUT);
 
     if (isModal()) {
       fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
@@ -22571,7 +22574,8 @@ Popper.Defaults = Defaults;
       addClass(popup, params.showClass.popup); // and remove the opacity workaround
 
       popup.style.removeProperty('opacity');
-    });
+    }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
+
     addClass([document.documentElement, document.body], swalClasses.shown);
 
     if (params.heightAuto && params.backdrop && !params.toast) {
@@ -23393,7 +23397,7 @@ Popper.Defaults = Defaults;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.3.1';
+  SweetAlert.version = '10.3.5';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;

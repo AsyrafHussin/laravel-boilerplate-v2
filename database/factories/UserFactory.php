@@ -48,4 +48,21 @@ class UserFactory extends Factory
                 $user->assign('admin');
             });
     }
+
+    /**
+     * Define user default state.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this
+            ->state([
+                'name' => 'user',
+                'email' => 'user@domain.com',
+                'password' => Hash::make('user123'),
+            ])->afterCreating(function (User $user) {
+                $user->assign('user');
+            });
+    }
 }

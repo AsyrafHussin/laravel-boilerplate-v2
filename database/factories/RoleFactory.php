@@ -36,4 +36,17 @@ class RoleFactory extends Factory
             'title' => 'admin',
         ]);
     }
+
+    /**
+     * Define the user default state.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->state([
+            'name' => 'user',
+            'title' => 'user',
+        ]);
+    }
 }
