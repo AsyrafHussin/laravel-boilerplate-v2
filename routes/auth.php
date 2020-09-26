@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     // login
-    Route::name('login')->get('login', [LoginController::class, 'login']);
+    Route::name('login')->get('login', [LoginController::class, 'index']);
     Route::name('login.check')->post('login/check', [LoginController::class, 'auth']);
 
     // register

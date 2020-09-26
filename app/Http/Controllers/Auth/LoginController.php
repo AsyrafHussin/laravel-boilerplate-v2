@@ -9,21 +9,11 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
-    /**
      * Show login page.
      *
      * @return \Illuminate\View\View
      */
-    public function login()
+    public function index()
     {
         return view('auth.login');
     }
