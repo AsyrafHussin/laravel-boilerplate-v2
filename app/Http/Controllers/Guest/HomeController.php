@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Show home page.
+     * Show guest home page.
      *
      * @return \Illuminate\View
      */
     public function index()
     {
-        return view('index');
+        return view('guest.index');
     }
 }
