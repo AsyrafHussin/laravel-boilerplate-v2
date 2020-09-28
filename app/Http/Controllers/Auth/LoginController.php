@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -21,7 +20,7 @@ class LoginController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param LoginRequest  $request
+     * @param App\Http\Requests\LoginRequest  $request
      * @return Illuminate\Http\RedirectResponse
      */
     public function auth(LoginRequest $request)
