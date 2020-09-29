@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 //     // register
 //     Route::name('register')->get('register', [RegisterController::class, 'index']);
-//     Route::name('register.save')->get('register/save', [RegisterController::class, 'save']);
+//     Route::name('register.save')->post('register/save', [RegisterController::class, 'save']);
 // });
 // Route::middleware('auth')->group(function () {
 //     Route::name('logout')->get('logout', [LoginController::class, 'logout']);
