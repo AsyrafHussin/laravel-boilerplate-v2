@@ -26,10 +26,22 @@ My Laravel Boilerplate v2
 
 ## Getting Started
 
-    $ git clone https://github.com/AsyrafHussin/laravel-boilerplate-v2.git <project-name>
-    $ cd <project-name>
-    $ ./setup.sh
-    $ php artisan serve
+```bash
+# Clone the repo
+git clone https://github.com/AsyrafHussin/laravel-boilerplate-v2.git <project-name>
+
+# Navigate to clonned folder
+cd <project-name>
+
+# Setup
+./setup.sh
+
+# Serve the application on http://127.0.0.1:8000
+php artisan serve
+
+# Watch for auto compile on http://127.0.0.1:3000
+npm run watch
+```
 
 ## Contributing
 
