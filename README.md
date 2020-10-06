@@ -33,7 +33,7 @@ git clone https://github.com/AsyrafHussin/laravel-boilerplate-v2.git <project-na
 # Navigate to clonned folder
 cd <project-name>
 
-# Setup
+# Run initial setup
 ./setup.sh
 
 # Serve the application on http://127.0.0.1:8000
