@@ -43,9 +43,15 @@ php artisan serve
 npm run watch
 ```
 
-## Using laranew
+## Via [laranew](https://github.com/AsyrafHussin/laranew) Installer
 
-[Install using laranew](https://github.com/AsyrafHussin/laranew)
+```bash
+# Install
+npm install -g laranew
+
+# Usage
+laranew [PROJECT]
+```
 
 ## Contributing
 
