@@ -20085,7 +20085,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v10.8.0
+* sweetalert2 v10.8.1
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -21804,6 +21804,7 @@ Popper.Defaults = Defaults;
     showDenyButton: false,
     showCancelButton: false,
     preConfirm: undefined,
+    preDeny: undefined,
     confirmButtonText: 'OK',
     confirmButtonAriaLabel: '',
     confirmButtonColor: undefined,
@@ -23461,7 +23462,7 @@ Popper.Defaults = Defaults;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.8.0';
+  SweetAlert.version = '10.8.1';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
