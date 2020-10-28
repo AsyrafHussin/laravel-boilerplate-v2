@@ -1,5 +1,7 @@
 @if (checkRole('admin'))
     @include('layouts.navbar.admin')
-@else
+@endif
+
+@if (checkRole('user'))
     @include('layouts.navbar.user')
 @endif
