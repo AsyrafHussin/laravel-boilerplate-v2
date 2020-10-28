@@ -56,7 +56,7 @@ if (! function_exists('checkRole')) {
      */
     function checkRole($role)
     {
-        return auth()->user()->isAn($role);
+        return auth()->check() && auth()->user()->isAn($role);
     }
 }
 
