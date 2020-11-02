@@ -14,7 +14,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function login()
+    public function index()
     {
         return view('auth.register');
     }
