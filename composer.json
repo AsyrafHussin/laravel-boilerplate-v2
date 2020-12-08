@@ -15,7 +15,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/tinker": "^2.5",
         "pyaesone17/active-state": "^1.1.1",
-        "silber/bouncer": "v1.0.0-rc.9"
+        "silber/bouncer": "v1.0.0-rc.10"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
