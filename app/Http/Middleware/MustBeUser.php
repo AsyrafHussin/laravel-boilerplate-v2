@@ -20,6 +20,6 @@ class MustBeUser
             return $next($request);
         }
 
-        return $next($request);
+        return redirect()->route('logout');
     }
 }
