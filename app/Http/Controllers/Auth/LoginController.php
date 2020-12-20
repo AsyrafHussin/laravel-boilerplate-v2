@@ -35,11 +35,11 @@ class LoginController extends Controller
             }
 
             return back()->with('errorMessage', 'Error. Cannot Login');
-        } else {
-            return back()->with([
-                'errorMessage' => 'Invalid email or password',
-            ]);
         }
+
+        return back()->with([
+            'errorMessage' => 'Invalid email or password',
+        ]);
     }
 
     /**
