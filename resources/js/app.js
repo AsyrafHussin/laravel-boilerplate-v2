@@ -7,7 +7,7 @@ window.Swal = Swal;
 // import module
 import { Scroll, Vendor } from "./modules";
 
-jQuery(function() {
+jQuery(function () {
     Vendor.init();
     Scroll.init();
 });
