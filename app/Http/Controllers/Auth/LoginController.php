@@ -34,6 +34,8 @@ class LoginController extends Controller
                 return redirect()->route($role.'.home');
             }
 
+            auth()->logout();
+
             return back()->with('errorMessage', 'Error. Cannot Login');
         }
 
