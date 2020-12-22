@@ -13,7 +13,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/sail": "^0.0.10",
+        "laravel/sail": "^1.0",
         "laravel/tinker": "^2.5",
         "pyaesone17/active-state": "^1.1.1",
         "silber/bouncer": "v1.0.0-rc.10"
