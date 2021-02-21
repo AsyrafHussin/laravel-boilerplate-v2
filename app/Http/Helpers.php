@@ -47,7 +47,7 @@ if (! function_exists('removeImg')) {
     }
 }
 
-if (! function_exists('removeAndSaveImg')) {
+if (! function_exists('removeAndSaveNewImg')) {
     /**
      * Remove image.from storage and save new image to storage.
      *
@@ -55,7 +55,7 @@ if (! function_exists('removeAndSaveImg')) {
      * @param string  $saveImg
      * @return string
      */
-    function removeAndSaveImg($removeImg, $saveImg)
+    function removeAndSaveNewImg($removeImg, $saveImg)
     {
         removeImg($removeImg);
 
