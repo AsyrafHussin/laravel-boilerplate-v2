@@ -47,6 +47,22 @@ if (! function_exists('removeImg')) {
     }
 }
 
+if (! function_exists('removeAndSaveImg')) {
+    /**
+     * Remove image.from storage and save new image to storage.
+     *
+     * @param string  $removeImg
+     * @param string  $saveImg
+     * @return string
+     */
+    function removeAndSaveImg($removeImg, $saveImg)
+    {
+        removeImg($removeImg);
+
+        return saveImg($saveImg);
+    }
+}
+
 if (! function_exists('checkRole')) {
     /**
      * Validate user's role.
