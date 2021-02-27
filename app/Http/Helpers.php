@@ -57,7 +57,9 @@ if (! function_exists('removeAndSaveNewImg')) {
      */
     function removeAndSaveNewImg($removeImg, $saveImg)
     {
-        removeImg($removeImg);
+        if ($removeImg) {
+            removeImg($removeImg);
+        }
 
         return saveImg($saveImg);
     }
