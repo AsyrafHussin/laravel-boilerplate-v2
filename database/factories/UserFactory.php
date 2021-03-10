@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -57,7 +56,7 @@ class UserFactory extends Factory
             ->state([
                 'name' => 'admin',
                 'email' => 'admin@domain.com',
-                'password' => Hash::make('admin123'),
+                'password' => bcrypt('admin123'),
             ])->afterCreating(function (User $user) {
                 $user->assign('admin');
             });
@@ -74,7 +73,7 @@ class UserFactory extends Factory
             ->state([
                 'name' => 'user',
                 'email' => 'user@domain.com',
-                'password' => Hash::make('user123'),
+                'password' => bcrypt('user123'),
             ])->afterCreating(function (User $user) {
                 $user->assign('user');
             });
