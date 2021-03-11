@@ -36,7 +36,8 @@ class LoginController extends Controller
 
             auth()->logout();
 
-            return back()->with('errorMessage', 'Error. Cannot Login')->withInput($request->except('password'));
+            return back()->with('errorMessage', 'Error. Cannot Login')
+                ->withInput($request->except('password'));
         }
 
         return back()->with([
