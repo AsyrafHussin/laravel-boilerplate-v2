@@ -49,7 +49,7 @@ if (! function_exists('removeImg')) {
 
 if (! function_exists('removeAndSaveNewImg')) {
     /**
-     * Remove image.from storage and save new image to storage.
+     * Remove image from storage and save new image to storage.
      *
      * @param string  $removeImg
      * @param string  $saveImg
