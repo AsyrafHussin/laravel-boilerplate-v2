@@ -18,7 +18,7 @@
         "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3.0",
         "cross-env": "^7.0.3",
-        "cssnano": "^4.1.10",
+        "cssnano": "^4.1.11",
         "import-glob-loader": "^1.1.0",
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.16",
@@ -28,7 +28,7 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.32.8",
         "sass-loader": "^11.0.1",
-        "sweetalert2": "^10.15.7",
+        "sweetalert2": "^10.16.0",
         "vue-template-compiler": "^2.6.12"
     }
 }
