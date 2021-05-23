@@ -3,7 +3,6 @@
 use Illuminate\Support\Str;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Cache Store
@@ -12,9 +11,6 @@ return [
     | This option controls the default cache connection that gets used while
     | using this caching library. This connection is used when another is
     | not explicitly specified when executing a given caching function.
-    |
-    | Supported: "apc", "array", "database", "file",
-    |            "memcached", "redis", "dynamodb"
     |
     */
 
@@ -30,12 +26,11 @@ return [
     | same cache driver to group types of items stored in your caches.
     |
     | Supported drivers: "apc", "array", "database", "file",
-    |            "memcached", "redis", "dynamodb", "null"
+    |         "memcached", "redis", "dynamodb", "octane", "null"
     |
     */
 
     'stores' => [
-
         'apc' => [
             'driver' => 'apc',
         ],
@@ -49,6 +44,7 @@ return [
             'driver' => 'database',
             'table' => 'cache',
             'connection' => null,
+            'lock_connection' => null,
         ],
 
         'file' => [
@@ -90,6 +86,9 @@ return [
             'endpoint' => env('DYNAMODB_ENDPOINT'),
         ],
 
+        'octane' => [
+            'driver' => 'octane',
+        ],
     ],
 
     /*
@@ -104,5 +103,4 @@ return [
     */
 
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
-
 ];
