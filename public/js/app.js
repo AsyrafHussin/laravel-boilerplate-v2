@@ -20199,7 +20199,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v11.0.18
+* sweetalert2 v11.0.19
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -21022,26 +21022,28 @@ Popper.Defaults = Defaults;
 
     const getMargin = el => parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
 
-    if ('MutationObserver' in window) {
-      // #1699
-      const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+    setTimeout(() => {
+      // #2291
+      if ('MutationObserver' in window) {
+        // #1699
+        const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
 
-      const outputsize = () => {
-        const textareaWidth = textarea.offsetWidth + getMargin(textarea);
+        const textareaResizeHandler = () => {
+          const textareaWidth = textarea.offsetWidth + getMargin(textarea);
 
-        if (textareaWidth > initialPopupWidth) {
-          getPopup().style.width = "".concat(textareaWidth, "px");
-        } else {
-          getPopup().style.width = null;
-        }
-      };
+          if (textareaWidth > initialPopupWidth) {
+            getPopup().style.width = "".concat(textareaWidth, "px");
+          } else {
+            getPopup().style.width = null;
+          }
+        };
 
-      new MutationObserver(outputsize).observe(textarea, {
-        attributes: true,
-        attributeFilter: ['style']
-      });
-    }
-
+        new MutationObserver(textareaResizeHandler).observe(textarea, {
+          attributes: true,
+          attributeFilter: ['style']
+        });
+      }
+    });
     return textarea;
   };
 
@@ -23291,7 +23293,7 @@ Popper.Defaults = Defaults;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.0.18';
+  SweetAlert.version = '11.0.19';
 
   const Swal = SweetAlert;
   Swal.default = Swal;
